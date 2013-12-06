@@ -1,12 +1,14 @@
 ﻿/// <reference path="http-request.js" />
 /// <reference path="class.js" />
-/// 
+ 
 var persister = (function () {
         
     function saveData(inputData) {
         dataObject = $.parseJSON(inputData);
-        localStorage.setItem("question", dataObject[0].question);
-        localStorage.setItem("answer", dataObject[0].answer);
+        for (var i = 0; i < dataObject.length; i += 1) {
+            localStorage.setItem("question" + i, dataObject[i].question);
+            localStorage.setItem("answer"+ i, dataObject[i].answer);
+        }
     }
 
     var MainPersister = Class.create({

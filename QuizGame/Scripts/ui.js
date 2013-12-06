@@ -17,11 +17,13 @@ var ui = (function () {
     };
 
     var buildPositiveAnswerUI = function () {
-        return "<img src='../Images/correct.png' id='correct-answer'/>";
+        return "<div><img src='../Images/correct.png' id='correct-answer'/></div>" +
+                "<button id='next-btn'>NEXT</button>";
     };
 
     var buildNegativeAnswerUI = function () {
-        return "<img src='../Images/incorrect.png' id='incorrect-answer'/>";
+        return "<div><img src='../Images/incorrect.png' id='incorrect-answer'/></div>" +
+                "<button id='next-btn'>NEXT</button>";
     };
 
     return {

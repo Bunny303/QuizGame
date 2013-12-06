@@ -7,7 +7,8 @@
 
 var controller = (function () {
     var baseUrl = "Scripts/questions-data.js";
-    
+    var questionCounter = 0;
+
     var Controller = Class.create({
         init: function () {
             this.persister = new persister.getPersister(baseUrl);
@@ -22,18 +23,19 @@ var controller = (function () {
             $("#start-btn").button();
         },
         loadGameUI: function (selector) {
-            var gameUIHtml = ui.gameUI(localStorage.getItem("question"));
+            var gameUIHtml = ui.gameUI(localStorage.getItem("question" + questionCounter)); //
             $(selector).html(gameUIHtml);
             $("#answer-btn").button();
         },
         loadPositiveAnswerUI: function(selector){
             var gameUIHtml = ui.answerPositiveUI();
             $(selector).html(gameUIHtml);
-            localStorage.clear();
+            $("#next-btn").button();
         },
         loadNegativeAnswerUI: function (selector) {
             var gameUIHtml = ui.answerNegativeUI();
             $(selector).html(gameUIHtml);
+            $("#next-btn").button();
         },
         attachUIEventHandlers: function (selector) {
             var container = $(selector);
@@ -45,7 +47,7 @@ var controller = (function () {
             });
 
             container.on("click", "#answer-btn", function () {
-                var answer = localStorage.getItem("answer");
+                var answer = localStorage.getItem("answer" + questionCounter); //
                 var inputAnswer = $("#answer-input").val();
                 if (answer == inputAnswer) {
                     self.loadPositiveAnswerUI(selector);
@@ -53,6 +55,12 @@ var controller = (function () {
                 else {
                     self.loadNegativeAnswerUI(selector);
                 }
+                return false;
+            });
+
+            container.on("click", "#next-btn", function () {
+                questionCounter = questionCounter + 1;
+                self.loadGameUI(selector);
                 return false;
             });
 
