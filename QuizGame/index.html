@@ -3,24 +3,21 @@
 <head>
     <title></title>
     <script src="Scripts/jquery-2.0.3.js"></script>
+    <script src="Scripts/jquery-ui-1.10.3.custom.js"></script>
+    <link href="Styles/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
     <script src="Scripts/class.js"></script>
-    <script src="Scripts/questions-data1.js"></script>
+    <script src="Scripts/questions-data.js"></script>
     <script src="Scripts/http-request.js"></script>
     <script src="Scripts/persister.js"></script>
     <script src="Scripts/ui.js"></script>
     <script src="Scripts/controller.js"></script>
+    <link href="Styles/style.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="main-container"></div>
-    
+    <div class="ui-widget ui-widget-content ui-corner-all" id="main-container"></div>
     
     <script>
-        //httpRequester.getJSON("Scripts/questions-data1.js", function (data) {
-        //    alert(JSON.stringify(data));
-        //}, function (arguments) {
-        //    alert(JSON.stringify(arguments))
-        //    });
-        var p = persister.getPersister("Scripts/questions-data1.js");
+        var p = persister.getPersister("Scripts/questions-data.js");
         p.question.getQuestion(function (data) {
             console.log(JSON.stringify(data));
         }, function (e) {
