@@ -1,0 +1,185 @@
+﻿body {
+    margin:0;
+    padding: 0;
+    background-color: lightgrey;
+    font-family: Comic Sans, Comic Sans MS, cursive
+}
+
+#main-container{
+    width: 300px;
+    margin: 100px auto 30px;
+    position: relative;
+}
+
+.error-message{
+    color:#ee4c8d;
+    font-size: 15px;
+}
+
+#go-to-register, #go-to-login {
+    color:#ee4c8d;
+    font-size: 15px;
+    text-decoration:none;
+}
+
+.login-form{
+    width: 70%;
+    float: left;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #fff;
+    border-right: none;
+}
+
+    .login-form input{
+        width: 90%;
+        height: 50px;
+        padding: 0 10px;
+ 
+        border: none; /* Remove the default border */
+        background: white; /* Fallback */
+        background: rgba(255,255,255,0.2);
+        box-shadow: 
+            inset 0 0 10px rgba(255,255,255,0.5);
+ 
+        text-indent: 10px;
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        font-size: 20px;      
+    }
+
+    .login-form input[type=text]{
+        border-bottom: 1px solid #fff; /* Fallback */
+        border-bottom: 1px solid rgba(255,255,255,0.7);
+        border-radius: 5px 0 0 0;
+    }
+
+    .login-form input[type=password]{
+        border-top: 1px solid #CCC; /* Fallback */
+        border-top: 1px solid rgba(0,0,0,0.1);
+        border-radius: 0 0 0 5px;
+    }
+
+    .login-form input:hover,
+    .login-form input:focus{
+        background: #f7def7; /* Fallback */
+        background: rgba(255,255,255,0.4);
+        outline: none;
+    }
+ 
+    .login-form input:-webkit-input-placeholder {
+        color: #fff;
+        text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+        font-family: Comic Sans, Comic Sans MS, cursive
+    }
+ 
+    .login-form input:-moz-placeholder {
+        color: #fff;
+        text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+        font-family: Comic Sans, Comic Sans MS, cursive
+    }
+ 
+    .login-form input:-ms-input-placeholder {
+        color: #fff;
+        text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+        font-family: Comic Sans, Comic Sans MS, cursive;
+    }
+
+#login-button, #register-button{
+    width: 29.6%;
+    height: 105px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+ 
+    background: radial-gradient(ellipse at center, #ee4c8d 0%,#b53467 100%);
+    border-radius: 0 5px 5px 0;
+    box-shadow:
+        inset 0 0 4px rgba(255, 255, 255, 0.7), 
+        inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-left: 1px solid silver;
+    cursor: pointer;  
+    line-height: 105px; /* Same as height */
+}
+
+#register-button {
+    height: 155px;
+}
+
+    #login-button span, #register-button span {
+    display: block;
+ 
+    color: #8d1645;
+    font-family: Comic Sans, Comic Sans MS, cursive; 
+    font-size: 20px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+    transform: rotate(-90deg);
+    transition: all 0.2s linear;
+}
+
+#login-button:focus, #register-button:focus {
+        outline: none;
+    }
+ 
+    #login-button:hover span,
+    #login-button:focus span,
+    #register-button:hover span,
+    #register-button:focus span {
+        transform: rotate(-90deg) translateY(-5px);
+    }
+
+.game-window {
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background: white; /* Fallback */
+    background: rgba(255,255,255,0.2);
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.5);
+}
+
+    .game-window a{
+        margin:20px auto;
+        width:50%;
+        padding: 10px 5px;
+        display:block;
+        background: radial-gradient(ellipse at center, #ee4c8d 0%,#b53467 100%);
+        border-radius: 5px;
+        box-shadow:
+            inset 0 0 4px rgba(255, 255, 255, 0.7), 
+            inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+        border: none;
+        cursor: pointer;  
+        text-align:center;
+        text-decoration:none;
+
+        color: #8d1645;
+        font-size: 20px;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    .game-window ul {
+        padding:0;
+    }
+
+    .game-window li, .game-window h2, .game-window p {
+        list-style: none;
+        text-align: center;
+        color: #8d1645;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+
+
+
+#question{
+    width: 100px;
+    height: auto;
+    
+}
+
+.message{
+    width: 20px;
+    height: auto;
+}
+
+

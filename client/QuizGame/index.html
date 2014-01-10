@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/libs/jquery-2.0.3.js"></script>
+    <script src="Scripts/libs/class.js"></script>
+    <script src="Scripts/libs/q.min.js"></script>
+    <script src="Scripts/libs/sha1.js"></script>
+    <script src="Scripts/libs/http-requester.js"></script>
+    <script src="Scripts/app/persister.js"></script>
+    <script src="Scripts/app/ui.js"></script>
+    <script src="Scripts/app/controller.js"></script>
+    <link href="Styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="main-container"></div>
+    
+    <script>
+        function PresentLoginPage(accessController, gameController) {
+            accessController.loginUser().then(function () {
+                $("#main-container").html("");
+                PresentMenuPage(accessController, gameController);
+                return false;
+            }).done();
+        }
+
+        function PresentMenuPage(accessController, gameController) {
+            gameController.loadMenu();
+        }
+
+        $(function () {
+            var localPersister = QuizGame.Data.getDataPersister("http://localhost:3000/");
+
+            var accessController = QuizGame.Controllers.getAccessController(localPersister, "#main-container");
+            var gameController = QuizGame.Controllers.getGameController(localPersister, "#main-container");
+
+            if (accessController.isUserLoggedIn()) {
+                PresentMenuPage(accessController, gameController);
+            }
+            else {
+                PresentLoginPage(accessController, gameController);
+            }
+
+        });
+    </script>
+</body>
+</html>

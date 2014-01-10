@@ -16,6 +16,11 @@ db.open(function (err, db) {
     }
 });
 
+function mycomparator(a, b) {
+    return parseInt(b.score) - parseInt(a.score);
+
+}
+
 exports.register = function (req, res) {
     var user = {
         username: req.body.username,
@@ -75,11 +80,12 @@ exports.updateScore = function (req, res) {
 
 exports.getAllScores = function (req, res) {
     db.collection('users', function (err, collection) {
-        collection.find({},{ 'sort': 'score' }).toArray(function (err, result) {
+        collection.find().toArray(function (err, result) {
             if (err) {
                 res.send({ 'error': 'An error has occurred' });
             } else {
                 console.log('Success');
+                result.sort(mycomparator);
                 res.send(result);
             }
         });
