@@ -27,4 +27,4 @@ app.post('/flags', flag.addFlag);
 app.get('/flags/:index', flag.getQuestion);
  
 app.listen(3000);
-console.log('Listening on port 3000...');
+console.log('Listening...');

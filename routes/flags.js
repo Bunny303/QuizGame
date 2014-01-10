@@ -1,4 +1,22 @@
-exports.getAll = function (req, res){
+mongo = require('mongodb')
+Server = mongo.Server
+Db = mongo.Db
+BSON = mongo.BSONPure;
+con = null;
+
+server = new Server('paulo.mongohq.com', 10003, {auto_reconnect: true});
+var db = new Db('QuizGameDB', server, {safe: false});
+db.open(function(err, db) {
+    if(!err) {
+        db.authenticate('Bunny', 'qwerty', function (err) {
+            if (!err) {
+                con = db;
+            }
+        });
+    }
+});
+
+exports.getAll = function (req, res) {
     db.collection('flags', function (err, collection) {
         collection.find().toArray(function (err, result) {
             if (err) {

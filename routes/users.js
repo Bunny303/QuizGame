@@ -1,36 +1,22 @@
-var mongo = require('mongodb');
- 
-var Server = mongo.Server,
-    Db = mongo.Db,
-    BSON = mongo.BSONPure;
- 
-var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('quizgamedb', server);
- 
-db.open(function(err, db) {
-    if(!err) {
-        console.log("Connected to 'quizgamedb' database");
-        db.collection('users', {strict:true}, function(err, collection) {
-            if (err) {
-                console.log("The 'users' collection doesn't exist.");
+mongo = require('mongodb')
+Server = mongo.Server
+Db = mongo.Db
+BSON = mongo.BSONPure;
+con = null;
+
+server = new Server('paulo.mongohq.com', 10003, { auto_reconnect: true });
+var db = new Db('QuizGameDB', server, { safe: false });
+db.open(function (err, db) {
+    if (!err) {
+        db.authenticate('Bunny', 'qwerty', function (err) {
+            if (!err) {
+                con = db;
             }
         });
     }
 });
 
-//var sessionKeyLen = 50;
-//var generateSessionKey = function (len) {
-//    var sessionKey = " ";
-//    var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-//    for (var i = 0; i < len; i++)
-//        sessionKey += charset.charAt(Math.floor(Math.random() * charset.length));
-
-//    return sessionKey;
-//};
-
 exports.register = function (req, res) {
-    //var sessionKey = generateSessionKey(sessionKeyLen);
     var user = {
         username: req.body.username,
         nickname: req.body.nickname,
