@@ -207,9 +207,9 @@ QuizGame.UI = (function () {
             var self = this;
             
             var successMessage = $("<img class='message' src='../Images/correct.png'/ >");
-            $("#answer").before(successMessage);
+            $("#question").after(successMessage);
             successMessage.attr("src", '../Images/correct.png');
-            successMessage.fadeOut(1000, function () {
+            successMessage.fadeOut(1500, function () {
                 successMessage.remove();
                 self._clearAnswerInput();
             });
@@ -219,8 +219,8 @@ QuizGame.UI = (function () {
             var self = this;
 
             var errorMessage = $("<img class='message' src='../Images/incorrect.png'/ >");
-            $("#answer").before(errorMessage);
-            errorMessage.fadeOut(1000, function () {
+            $("#question").after(errorMessage);
+            errorMessage.fadeOut(1500, function () {
                 errorMessage.remove();
                 self._clearAnswerInput();
             });
