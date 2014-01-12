@@ -106,6 +106,14 @@
     <Content Include="Styles\images\ui-icons_fbc856_256x240.png" />
     <Content Include="Styles\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Styles\style.css" />
+    <Content Include="Tests\jasmine-2.0.0\boot.js" />
+    <Content Include="Tests\jasmine-2.0.0\console.js" />
+    <Content Include="Tests\jasmine-2.0.0\jasmine-html.js" />
+    <Content Include="Tests\jasmine-2.0.0\jasmine.css" />
+    <Content Include="Tests\jasmine-2.0.0\jasmine.js" />
+    <Content Include="Tests\jasmine-2.0.0\jasmine_favicon.png" />
+    <Content Include="Tests\quizgame-tests.html" />
+    <Content Include="Tests\quizgame-tests.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

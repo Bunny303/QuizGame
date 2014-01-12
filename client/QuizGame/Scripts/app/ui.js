@@ -64,6 +64,11 @@ QuizGame.UI = (function () {
 
         reportError: function (errorMessage) {
             this.rootElement.append("<p class='error-message'>" + errorMessage + "</p>");
+
+            var errorMessage = $("p.error-message");
+            errorMessage.fadeOut(3000, function () {
+                errorMessage.remove();
+            });
         }
     });
 
@@ -109,6 +114,11 @@ QuizGame.UI = (function () {
 
         reportError: function (errorMessage) {
             this.rootElement.append("<p class='error-message'>" + errorMessage + "</p>");
+
+            var errorMessage = $("p.error-message");
+            errorMessage.fadeOut(3000, function () {
+                errorMessage.remove();
+            });
         }
     });
 
@@ -252,7 +262,7 @@ QuizGame.UI = (function () {
 
             if (newData) {
                 for (var i = 0; i < newData.length; i+=1 ) {
-                    var listElement = $("<li>" + (i+1) + ". " + newData[i]["username"] + "   " + newData[i]["score"] + "</li>");
+                    var listElement = $("<li>" + (i+1) + ". " + newData[i]["nickname"] + "   " + newData[i]["score"] + "</li>");
 
                     this.listContainer.append(listElement);
 
