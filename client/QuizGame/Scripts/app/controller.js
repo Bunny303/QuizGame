@@ -4,6 +4,7 @@
 /// <reference path="jquery-ui-1.10.3.custom.js" />
 /// <reference path="ui.js" />
 /// <reference path="persister.js" />
+/// <reference path="../libs/facebook-like.js" />
 /// <reference path="../libs/q.min.js" />
 
 var QuizGame = QuizGame || {};
@@ -176,7 +177,16 @@ QuizGame.Controllers = (function () {
             this.createMenuControl.attachLogoutClickHandler(function () {
                 self.dataPersister.user.logout();
                 //How to redirect to login page?
+
+                self.fecebookLike();
             });
+        },
+
+        fecebookLike: function () {
+            var js = document.createElement('script');
+            js.id = 'facebook-jssdk';
+            js.src = "//connect.facebook.net/bg_BG/all.js#xfbml=1";
+            $('#fb-root').append(js);
         },
 
         attachGameHandlers: function (currIndex) {

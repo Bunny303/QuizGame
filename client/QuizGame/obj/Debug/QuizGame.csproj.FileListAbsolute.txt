@@ -3,3 +3,8 @@ C:\Users\Nadi\Desktop\JS_App\GameProject\QuizGame\bin\QuizGame.pdb
 C:\Users\Nadi\Desktop\JS_App\GameProject\QuizGame\obj\Debug\QuizGame.csprojResolveAssemblyReference.cache
 C:\Users\Nadi\Desktop\JS_App\GameProject\QuizGame\obj\Debug\QuizGame.dll
 C:\Users\Nadi\Desktop\JS_App\GameProject\QuizGame\obj\Debug\QuizGame.pdb
+C:\Users\Nadi\Desktop\JS_App\GameProject\Client\QuizGame\bin\QuizGame.dll
+C:\Users\Nadi\Desktop\JS_App\GameProject\Client\QuizGame\bin\QuizGame.pdb
+C:\Users\Nadi\Desktop\JS_App\GameProject\Client\QuizGame\obj\Debug\QuizGame.csprojResolveAssemblyReference.cache
+C:\Users\Nadi\Desktop\JS_App\GameProject\Client\QuizGame\obj\Debug\QuizGame.dll
+C:\Users\Nadi\Desktop\JS_App\GameProject\Client\QuizGame\obj\Debug\QuizGame.pdb

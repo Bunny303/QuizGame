@@ -167,6 +167,9 @@ QuizGame.UI = (function () {
 
             $(this.rootElement).on("click", "#logout-button", function () {
                 self.rootElement.html('<div class="game-window"><p>Thank you!</p></div>');
+                $('.game-window').css('text-align', 'center');
+                $('.game-window').append('<div id="fb-root"></div>');
+                $('.game-window').append('<div class="fb-like" data-href="https://QuizGame.com" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>');
                 handler();
             });
         }
