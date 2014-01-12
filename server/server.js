@@ -22,8 +22,8 @@ app.post('/users/register', user.register);
 app.post('/users/login', user.login);
 app.put('/users/score/:id', user.updateScore);
 app.get('/users/score', user.getAllScores);
-app.get('/flags', flag.getAll);
-app.post('/flags', flag.addFlag);
+//app.get('/flags', flag.getAll);
+//app.post('/flags', flag.addFlag);
 app.get('/flags/:index', flag.getQuestion);
  
 app.listen(3000);

@@ -16,18 +16,18 @@ db.open(function(err, db) {
     }
 });
 
-exports.getAll = function (req, res) {
-    db.collection('flags', function (err, collection) {
-        collection.find().toArray(function (err, result) {
-            if (err) {
-                res.send({ 'error': 'An error has occurred' });
-            } else {
-                console.log('Success');
-                res.send(result);
-            }
-        });
-    });
-}
+//exports.getAll = function (req, res) {
+//    db.collection('flags', function (err, collection) {
+//        collection.find().toArray(function (err, result) {
+//            if (err) {
+//                res.send({ 'error': 'An error has occurred' });
+//            } else {
+//                console.log('Success');
+//                res.send(result);
+//            }
+//        });
+//    });
+//}
 
 exports.getQuestion = function (req, res) {
     var searchedIndex = req.params.index.toString();
@@ -48,21 +48,21 @@ exports.getQuestion = function (req, res) {
     });
 }
 
-exports.addFlag = function (req, res) {
-    var flag = {
-        url: req.body.url,
-        answer: req.body.answer,
-        index: req.body.index
-    };
-    console.log('Flag added');
-    db.collection('flags', function (err, collection) {
-        collection.insert(flag, { safe: true }, function (err, result) {
-            if (err) {
-                res.send({ 'error': 'An error has occurred' });
-            } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]._id);
-            }
-        });
-    });
-}
+//exports.addFlag = function (req, res) {
+//    var flag = {
+//        url: req.body.url,
+//        answer: req.body.answer,
+//        index: req.body.index
+//    };
+//    console.log('Flag added');
+//    db.collection('flags', function (err, collection) {
+//        collection.insert(flag, { safe: true }, function (err, result) {
+//            if (err) {
+//                res.send({ 'error': 'An error has occurred' });
+//            } else {
+//                console.log('Success: ' + JSON.stringify(result[0]));
+//                res.send(result[0]._id);
+//            }
+//        });
+//    });
+//}

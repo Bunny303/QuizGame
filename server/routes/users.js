@@ -22,26 +22,32 @@ function mycomparator(a, b) {
 }
 
 exports.register = function (req, res) {
-    var user = {
-        username: req.body.username,
-        nickname: req.body.nickname,
-        authCode: req.body.authCode,
-        score: 0
-    }; 
-    console.log('Register user: ' + JSON.stringify(user));
-    db.collection('users', function(err, collection) {
-        collection.insert(user, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred'});
-            } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]._id);
-            }
+    var emptyPass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
+    if (req.body.username == '' || req.body.nickname == '' || req.body.authCode == emptyPass) {
+        res.send(500, "All fields are requred");
+    }
+    else {
+        var user = {
+            username: req.body.username,
+            nickname: req.body.nickname,
+            authCode: req.body.authCode,
+            score: 0
+        };
+        console.log('Register user: ' + JSON.stringify(user));
+        db.collection('users', function (err, collection) {
+            collection.insert(user, { safe: true }, function (err, result) {
+                if (err) {
+                    res.send({ 'error': 'An error has occurred' });
+                } else {
+                    console.log('Success: ' + JSON.stringify(result[0]));
+                    res.send(result[0]._id);
+                }
+            });
         });
-    });
+    }
 }
 
-exports.login = function(req, res) {
+exports.login = function (req, res) {
     var user = {
         username: req.body.username,
         authCode: req.body.authCode
@@ -53,10 +59,15 @@ exports.login = function(req, res) {
                 res.send({'error':'An error has occurred'});
             } else {
                 console.log('Success: ' + JSON.stringify(result));
-                res.send({
-                    id: result._id,
-                    nickname: result.nickname
-                });
+                if (result) {
+                    res.send(200, {
+                        id: result._id,
+                        nickname: result.nickname
+                    });
+                }
+                else {
+                    res.send(500, "Wrong username or password");
+                }
             }
         });
     });
